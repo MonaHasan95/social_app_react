@@ -7,9 +7,9 @@ import NotFound from './components/NotFound/NotFound';
 import Profile from './components/Profile/Profile';
 import Login from './components/Login/Login';
 import Register from './components/Register/Register';
+import { DataProvider } from './Context/Counter';
 
 function App() {
-  const [count, setCount] = useState(0)
   let routerMap = createBrowserRouter([
     {path:'', element:<Layout/>, children:[
       {index:true, element:<Home/>},
@@ -21,7 +21,9 @@ function App() {
   ]);
   return (
     <>
+    <DataProvider>
       <RouterProvider router={routerMap}></RouterProvider>
+    </DataProvider>
     </>
   )
 }
